@@ -3,6 +3,7 @@ module github.com/charmbracelet/glow
 go 1.13
 
 require (
+	github.com/JohannesKaufmann/html-to-markdown v1.3.3
 	github.com/charmbracelet/bubbles v0.7.6
 	github.com/charmbracelet/bubbletea v0.13.2
 	github.com/charmbracelet/charm v0.8.6
@@ -21,6 +22,7 @@ require (
 	github.com/segmentio/ksuid v1.0.3
 	github.com/spf13/cobra v1.1.3
 	github.com/spf13/viper v1.7.1
+	github.com/sundy-li/html2article v0.0.0-20180131134645-09ac198090c2
 	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad // indirect
 	golang.org/x/net v0.0.0-20200813134508-3edf25e44fcc // indirect
 	golang.org/x/sys v0.0.0-20210113181707-4bcb84eeeb78

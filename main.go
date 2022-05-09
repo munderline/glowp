@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"net/http"
+	// "net/http"
 	"net/url"
 	"os"
 	"os/exec"
@@ -22,6 +22,7 @@ import (
 	"github.com/charmbracelet/charm/ui/common"
 	"github.com/charmbracelet/glamour"
 	"github.com/charmbracelet/glow/ui"
+	"github.com/charmbracelet/glow/plus"
 	"github.com/charmbracelet/glow/utils"
 )
 
@@ -84,15 +85,18 @@ func sourceFromArg(arg string) (*source, error) {
 			if u.Scheme != "http" && u.Scheme != "https" {
 				return nil, fmt.Errorf("%s is not a supported protocol", u.Scheme)
 			}
+                        rep := plus.Hook(u.String())
+                        fmt.Println(u.String())
+			return &source{rep, u.String()}, nil
 
-			resp, err := http.Get(u.String())
-			if err != nil {
-				return nil, err
-			}
-			if resp.StatusCode != http.StatusOK {
-				return nil, fmt.Errorf("HTTP status %d", resp.StatusCode)
-			}
-			return &source{resp.Body, u.String()}, nil
+			// resp, err := http.Get(u.String())
+			// if err != nil {
+			// 	return nil, err
+			// }
+			// if resp.StatusCode != http.StatusOK {
+			// 	return nil, fmt.Errorf("HTTP status %d", resp.StatusCode)
+			// }
+			// return &source{resp.Body, u.String()}, nil
 		}
 	}
 
